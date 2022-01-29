@@ -1,5 +1,6 @@
 from functools import reduce
 from input_utils import get_measurements
+# from shapes import Circle
 
 mensuration_select_message = """\nSelect Shape...\n
 \t\t1 -> Circle
@@ -10,11 +11,11 @@ mensuration_select_message = """\nSelect Shape...\n
 \t\t6 -> Sphare
 \t\t0 -> Back to 'Home Menu'"""
 
-selection_message = """!! Choose applicable !!
+selection_message = """!! Choose applicable property!!
 (P)erimeter
 (A)rea
 (V)olume
-Note : Press any other key to go back to 'Shape Menu'  ->>> """
+Note : Press any other key to go back to 'Shapes Menu'  ->>> """
 
 
 class ShapeList:
@@ -27,6 +28,7 @@ class ShapeList:
     CYLINDER = 5
     SPHARE = 6
 
+class Shapes:
 
 class Mensuration:
     def circle(measurements):
@@ -79,15 +81,10 @@ def mensuration_calculation():
         elif operation == ShapeList.CIRCLE:
             dimensions = get_measurements()
             result = Mensuration.circle(dimensions)
-            while True:
-                selection = input(selection_message)
-                if selection.lower() == "a":
-                    print(f"Area = {result[0]}\n")
-                elif selection.lower() == "p":
-                    print(f"Perimeter = {result[1]}\n")
-                else:
-                    print("\nNOT APPLICABLE !!!\n")
-                    break
+            should_continue = True
+            while should_continue:
+                option = input(selection_message)
+                should_continue = select_option(option, circle)
 
         elif operation == ShapeList.TRIANGLE:
             dimensions = get_measurements()
@@ -155,3 +152,14 @@ def mensuration_calculation():
                     break
 
 # def show_result()
+
+def choose_shape(shape):
+    if shape == ShapeList.CIRCLE:
+        dimensions = get_measurements()
+        result = Mensuration.circle(dimensions)
+        should_continue = True
+        while should_continue:
+            option = input(selection_message)
+            should_continue = select_option(option, circle)
+
+
