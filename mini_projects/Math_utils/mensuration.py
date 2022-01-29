@@ -18,6 +18,7 @@ Note : Press any other key to go back to 'Shape Menu'  ->>> """
 
 
 class ShapeList:
+    '''Defining constants for various shapes'''
     GO_BACK = 0
     CIRCLE = 1
     TRIANGLE = 2
