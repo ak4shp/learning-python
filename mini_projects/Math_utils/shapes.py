@@ -82,8 +82,7 @@ class Cone():
         }
 
     def volume(self):
-        _volume = (math.pi * (self.__radius ** 2) * self.__slant_height) / 3
-        return _volume
+        return (math.pi * (self.__radius ** 2) * self.__slant_height) / 3
 
     def properties_menu(self):
         print("(S)lant Height\n(A)rea\n(V)olume\n(M)enu\n")
@@ -91,8 +90,25 @@ class Cone():
         return option
 
 class Cylinder():
-    pass
+    def __init__(self, radius, height):
+        self.__radius = radius
+        self.__height = height
 
+    def surface_area(self):
+        curve_area = 2 * math.pi * self.__radius * self.__height
+        total_area = curve_area + 2 * math.pi * (self.__radius ** 2)
+        return {
+            'curve_area': curve_area,
+            'total_area': total_area
+        }
+
+    def volume(self):
+        return math.pi * (self.__radius ** 2) * self.__height
+
+    def properties_menu(self):
+        print("(A)rea\n(V)olume\n(M)enu\n")
+        option = input("->> ")
+        return option
 
 class Sphere():
     pass
