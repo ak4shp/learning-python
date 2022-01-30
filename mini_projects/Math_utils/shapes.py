@@ -73,7 +73,7 @@ class Cone():
     def calculate_slant_height(self):
         return math.sqrt(self.__radius ** 2 + self.__height ** 2)
 
-    def area(self):
+    def surface_area(self):
         curve_area = math.pi * self.__radius * self.__slant_height
         total_area = curve_area + math.pi * (self.__radius ** 2)
         return {
