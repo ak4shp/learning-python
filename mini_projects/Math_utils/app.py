@@ -21,7 +21,7 @@ class Options:
 class MainFunction:
     def __init__(self):
         self.__show_main_menu = True
-        
+
     def home_menu(self):
         while self.__show_main_menu:
             option = MainMenu._main_menu()
@@ -35,6 +35,7 @@ class MainFunction:
             elif option == Options.MENSURATION:
                 m = Mensuration()
                 m.perform_operation()
+
 
 if __name__ == "__main__":
     f = MainFunction()
