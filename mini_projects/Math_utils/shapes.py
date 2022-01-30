@@ -12,10 +12,7 @@ class Circle():
         return 2 * math.pi * self.__radius
         
     def properties_menu(self):
-        print("""(P)erimeter
-(A)rea
-(M)enu
-""")
+        print("(P)erimeter\n(A)rea\n(M)enu\n")
         option = input("->> ")
         return option
 
@@ -45,10 +42,7 @@ class Triangle():
         return False
 
     def properties_menu(self):
-        print("""(P)erimeter
-(A)rea
-(M)enu
-""")
+        print("(P)erimeter\n(A)rea\n(M)enu\n")
         option = input("->> ")
         return option
 
