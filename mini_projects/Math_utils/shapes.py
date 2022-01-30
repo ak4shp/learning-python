@@ -121,3 +121,8 @@ class Sphere():
 
     def volume(self):
         return math.pi * (self.__radius ** 3)
+
+    def properties_menu(self):
+        print("(A)rea\n(V)olume\n(M)enu\n")
+        option = input("->> ")
+        return option
