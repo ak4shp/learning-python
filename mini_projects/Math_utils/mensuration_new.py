@@ -8,8 +8,9 @@ def shape_properties(shape_property, shape):
         print(f"Perimeter = {shape.perimeter()}\n")
     elif shape_property.lower() == Shapes.Properties.VOLUME:
         print(f"Volume = {shape.volume()}\n")
+    elif shape_property.lower() == Shapes.Properties.SLANT_HEIGHT:
+        print(f"Slant height = {shape.calculate_slant_height()}\n")
     else:
-        # print("\nNOT APPLICABLE !!!\n")
         return False
     return True
 
@@ -28,6 +29,7 @@ class Shapes:
         AREA = 'a'
         PERIMETER = 'p'
         VOLUME = 'v'
+        SLANT_HEIGHT = 's'
 
     def menu():
         print("""\nSelect Shape...\n
@@ -76,9 +78,3 @@ class Mensuration:
                         show_properties_menu = shape_properties(shape_property, triangle)
                 else:
                     print("Invalid Triangle")
-
-
-
-
-
-
