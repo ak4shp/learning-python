@@ -6,14 +6,17 @@ def get_operands():
     operands = list(map(int, operands_string_list))
     return operands
 
-numeric_select_message = """\nSelect operation...\n
-\t\t1 -> Summation
-\t\t2 -> Subtraction
-\t\t3 -> Multiplication
-\t\t4 -> Division
-\t\t5 -> Exponential
-\t\t6 -> Average
-\t\t0 -> Back to Home Menu"""
+def menu():
+    print("""\nSelect operation...\n
+\t1 -> Summation
+\t2 -> Subtraction
+\t3 -> Multiplication
+\t4 -> Division
+\t5 -> Exponential
+\t6 -> Average
+\t0 -> Back to Home Menu""")
+    option = int(input("\t->> "))
+    return option
 
 class Operations:
     GO_BACK = 0
@@ -84,8 +87,7 @@ class AdditionalOperation:
 
 def numeric_calculation():
     while True:
-        print(numeric_select_message)
-        operation = int(input("\t  ->> "))
+        operation = menu()
 
         if operation == Operations.GO_BACK:
             break
