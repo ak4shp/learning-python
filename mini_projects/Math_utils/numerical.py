@@ -85,35 +85,39 @@ class AdditionalOperation:
         return result
 
 
-def numeric_calculation():
-    while True:
-        operation = menu()
+class NumericOperation:
+    def __init__(self):
+        self.__show_numerical_menu = True
 
-        if operation == Operations.GO_BACK:
-            break
+    def numeric_calculation(self):
+        while self.__show_numerical_menu:
+            operation = menu()
 
-        elif operation == Operations.ADD:
-            numbers = get_operands()
-            print(BasicOperation.addition(numbers))
+            if operation == Operations.GO_BACK:
+                self.__show_numerical_menu = False
 
-        elif operation == Operations.SUBTRACT:
-            numbers = get_operands()
-            print(BasicOperation.subtract(numbers))
+            elif operation == Operations.ADD:
+                numbers = get_operands()
+                print(BasicOperation.addition(numbers))
 
-        elif operation == Operations.MULTIPLY:
-            numbers = get_operands()
-            print(BasicOperation.multiply(numbers))
+            elif operation == Operations.SUBTRACT:
+                numbers = get_operands()
+                print(BasicOperation.subtract(numbers))
 
-        elif operation == Operations.DIVIDE:
-            numbers = get_operands()
-            print(BasicOperation.division(numbers))
-        
-        elif operation == Operations.EXPONENT:
-            numbers = get_operands()
-            power = int(input("Enter power: "))
-            print(AdditionalOperation.exponential(numbers, power))
+            elif operation == Operations.MULTIPLY:
+                numbers = get_operands()
+                print(BasicOperation.multiply(numbers))
 
-        elif operation == Operations.AVERAGE:
-            numbers = get_operands()
-            print(AdditionalOperation.average(numbers))
-        
+            elif operation == Operations.DIVIDE:
+                numbers = get_operands()
+                print(BasicOperation.division(numbers))
+            
+            elif operation == Operations.EXPONENT:
+                numbers = get_operands()
+                power = int(input("Enter power: "))
+                print(AdditionalOperation.exponential(numbers, power))
+
+            elif operation == Operations.AVERAGE:
+                numbers = get_operands()
+                print(AdditionalOperation.average(numbers))
+            
