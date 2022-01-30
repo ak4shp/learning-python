@@ -1,14 +1,22 @@
 from functools import reduce
-from input_utils import get_operands 
 
-numeric_select_message = """\nSelect operation...\n
-\t\t1 -> Summation
-\t\t2 -> Subtraction
-\t\t3 -> Multiplication
-\t\t4 -> Division
-\t\t5 -> Exponential
-\t\t6 -> Average
-\t\t0 -> Back to Home Menu"""
+class InputMethods:
+    def get_operands():
+        operands_string_list = input("Enter operands(space separated) >> ").split()
+        operands = list(map(int, operands_string_list))
+        return operands
+
+    def menu():
+        print("""\nSelect operation...\n
+    \t1 -> Summation
+    \t2 -> Subtraction
+    \t3 -> Multiplication
+    \t4 -> Division
+    \t5 -> Exponential
+    \t6 -> Average
+    \t0 -> Back to Home Menu""")
+        option = int(input("\t->> "))
+        return option
 
 class Operations:
     GO_BACK = 0
@@ -44,7 +52,7 @@ class BasicOperation:                # Basic operations.
         if len(operands) == 2:
             div = operands[0] / operands[1]
         else:
-            div = "Invalid input! please give only 2 values for division"
+            div = "Invalid input! please give only 2 values for division\n"
         return div
 
 
@@ -77,36 +85,39 @@ class AdditionalOperation:
         return result
 
 
-def numeric_calculation():
-    while True:
-        print(numeric_select_message)
-        operation = int(input("\t  ->> "))
+class NumericOperation:
+    def __init__(self):
+        self.__show_numerical_menu = True
 
-        if operation == Operations.GO_BACK:
-            break
+    def numeric_calculation(self):
+        while self.__show_numerical_menu:
+            operation = InputMethods.menu()
 
-        elif operation == Operations.ADD:
-            numbers = get_operands()
-            print(BasicOperation.addition(numbers))
+            if operation == Operations.GO_BACK:
+                self.__show_numerical_menu = False
 
-        elif operation == Operations.SUBTRACT:
-            numbers = get_operands()
-            print(BasicOperation.subtract(numbers))
+            elif operation == Operations.ADD:
+                numbers = InputMethods.get_operands()
+                print(f"Sum = {BasicOperation.addition(numbers)}")
 
-        elif operation == Operations.MULTIPLY:
-            numbers = get_operands()
-            print(BasicOperation.multiply(numbers))
+            elif operation == Operations.SUBTRACT:
+                numbers = InputMethods.get_operands()
+                print(f"Answer = {BasicOperation.subtract(numbers)}")
 
-        elif operation == Operations.DIVIDE:
-            numbers = get_operands()
-            print(BasicOperation.division(numbers))
-        
-        elif operation == Operations.EXPONENT:
-            numbers = get_operands()
-            power = int(input("Enter power: "))
-            print(AdditionalOperation.exponential(numbers, power))
+            elif operation == Operations.MULTIPLY:
+                numbers = InputMethods.get_operands()
+                print(f"Answer = {BasicOperation.multiply(numbers)}")
 
-        elif operation == Operations.AVERAGE:
-            numbers = get_operands()
-            print(AdditionalOperation.average(numbers))
-        
+            elif operation == Operations.DIVIDE:
+                numbers = InputMethods.get_operands()
+                print(f"Answer = {BasicOperation.division(numbers)}")
+            
+            elif operation == Operations.EXPONENT:
+                numbers = InputMethods.get_operands()
+                power = int(input("Enter power: "))
+                print(f"Answer = {AdditionalOperation.exponential(numbers, power)}")
+
+            elif operation == Operations.AVERAGE:
+                numbers = InputMethods.get_operands()
+                print(f"Average = {AdditionalOperation.average(numbers)}")
+            
