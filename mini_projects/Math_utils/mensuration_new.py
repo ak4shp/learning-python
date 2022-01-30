@@ -1,4 +1,4 @@
-from shapes import Circle, Triangle
+from shapes import Circle, Triangle, Rectangle, Cylinder, Cone, Sphere
 
 
 def shape_properties(shape_property, shape):
@@ -8,8 +8,9 @@ def shape_properties(shape_property, shape):
         print(f"Perimeter = {shape.perimeter()}\n")
     elif shape_property.lower() == Shapes.Properties.VOLUME:
         print(f"Volume = {shape.volume()}\n")
+    elif shape_property.lower() == Shapes.Properties.SLANT_HEIGHT:
+        print(f"Slant height = {shape.calculate_slant_height()}\n")
     else:
-        # print("\nNOT APPLICABLE !!!\n")
         return False
     return True
 
@@ -22,12 +23,13 @@ class Shapes:
     RECTANGLE = 3
     CONE = 4
     CYLINDER = 5
-    SPHARE = 6
+    SPHERE = 6
 
     class Properties:
         AREA = 'a'
         PERIMETER = 'p'
         VOLUME = 'v'
+        SLANT_HEIGHT = 's'
 
     def menu():
         print("""\nSelect Shape...\n
@@ -77,8 +79,37 @@ class Mensuration:
                 else:
                     print("Invalid Triangle")
 
+            elif shape == Shapes.RECTANGLE:
+                print("Enter length, width(space separated):")
+                sides = map(int, input().split())
+                rectangle = Rectangle(*sides)
 
+                while show_properties_menu:
+                    shape_property = rectangle.properties_menu()
+                    show_properties_menu = shape_properties(shape_property, rectangle)
 
+            elif shape == Shapes.CYLINDER:
+                print("Enter radius, height(space separated):")
+                sides = map(int, input().split())
+                cylinder = Cylinder(*sides)
 
+                while show_properties_menu:
+                    shape_property = cylinder.properties_menu()
+                    show_properties_menu = shape_properties(shape_property, cylinder)
 
+            elif shape == Shapes.CONE:
+                print("Enter radius, height(space separated):")
+                sides = map(int, input().split())
+                cone = Cone(*sides)
 
+                while show_properties_menu:
+                    shape_property = cone.properties_menu()
+                    show_properties_menu = shape_properties(shape_property, cone)
+
+            elif shape == Shapes.SPHERE:
+                sides = int(input("Enter radius:"))
+                sphere = Sphere(sides)
+
+                while show_properties_menu:
+                    shape_property = sphere.properties_menu()
+                    show_properties_menu = shape_properties(shape_property, sphere)
