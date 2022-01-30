@@ -18,18 +18,24 @@ class Options:
     MENSURATION = 2
     
     
-def home_menu():
-    while True:
-        option = MainMenu._main_menu()
+class MainFunction:
+    def __init__(self):
+        self.__show_main_menu = True
+        
+    def home_menu(self):
+        while self.__show_main_menu:
+            option = MainMenu._main_menu()
 
-        if option == Options.GO_BACK:
-            break
-        elif option == Options.NUMERICAL:
-            n = NumericOperation()
-            n.numeric_calculation()
-        elif option == Options.MENSURATION:
-            m = Mensuration()
-            m.perform_operation()
+            if option == Options.GO_BACK:
+                self.__show_main_menu = False
+
+            elif option == Options.NUMERICAL:
+                n = NumericOperation()
+                n.numeric_calculation()
+            elif option == Options.MENSURATION:
+                m = Mensuration()
+                m.perform_operation()
 
 if __name__ == "__main__":
-    home_menu()
+    f = MainFunction()
+    f.home_menu()
