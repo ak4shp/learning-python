@@ -98,26 +98,26 @@ class NumericOperation:
 
             elif operation == Operations.ADD:
                 numbers = InputMethods.get_operands()
-                print(BasicOperation.addition(numbers))
+                print(f"Sum = {BasicOperation.addition(numbers)}")
 
             elif operation == Operations.SUBTRACT:
                 numbers = InputMethods.get_operands()
-                print(BasicOperation.subtract(numbers))
+                print(f"Answer = {BasicOperation.subtract(numbers)}")
 
             elif operation == Operations.MULTIPLY:
                 numbers = InputMethods.get_operands()
-                print(BasicOperation.multiply(numbers))
+                print(f"Answer = {BasicOperation.multiply(numbers)}")
 
             elif operation == Operations.DIVIDE:
                 numbers = InputMethods.get_operands()
-                print(BasicOperation.division(numbers))
+                print(f"Answer = {BasicOperation.division(numbers)}")
             
             elif operation == Operations.EXPONENT:
                 numbers = InputMethods.get_operands()
                 power = int(input("Enter power: "))
-                print(AdditionalOperation.exponential(numbers, power))
+                print(f"Answer = {AdditionalOperation.exponential(numbers, power)}")
 
             elif operation == Operations.AVERAGE:
                 numbers = InputMethods.get_operands()
-                print(AdditionalOperation.average(numbers))
+                print(f"Average = {AdditionalOperation.average(numbers)}")
             
