@@ -48,7 +48,20 @@ class Triangle():
 
 
 class Rectangle():
-    pass
+    def __init__(self, length, width):
+        self.__length = length
+        self.__width = width
+
+    def area(self):
+        return self.__length * self.__width
+
+    def perimeter(self):
+        return 2 * (self.__length + self.__width)
+
+    def properties_menu(self):
+        print("(P)erimeter\n(A)rea\n(M)enu\n")
+        option = input("->> ")
+        return option
 
 
 class Cone():
