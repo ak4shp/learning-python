@@ -89,6 +89,7 @@ class Cone():
         option = input("->> ")
         return option
 
+
 class Cylinder():
     def __init__(self, radius, height):
         self.__radius = radius
@@ -109,6 +110,7 @@ class Cylinder():
         print("(A)rea\n(V)olume\n(M)enu\n")
         option = input("->> ")
         return option
+
 
 class Sphere():
     def __init__(self, radius):
