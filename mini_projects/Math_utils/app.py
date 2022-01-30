@@ -1,10 +1,16 @@
 from mensuration import Mensuration
 from numerical import NumericOperation
 
-welcome = """\nWelcome to 'MATH_UTILS'. Please select Operation Category...\n
+
+class MainMenu:
+    def _main_menu():
+        print("""\nWelcome to 'MATH_UTILS'. Please select Operation Category...\n
 \t1 -> Basic Operations
 \t2 -> Mensuration 
-\t0 -> Exit App"""
+\t0 -> Exit App""")
+        selection = int(input("--> "))
+        return selection
+
 
 class Options:
     GO_BACK = 0
@@ -14,8 +20,7 @@ class Options:
     
 def home_menu():
     while True:
-        print(welcome)
-        option = int(input("--> "))
+        option = MainMenu._main_menu()
 
         if option == Options.GO_BACK:
             break
