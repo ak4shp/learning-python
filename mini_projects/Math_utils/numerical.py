@@ -1,5 +1,10 @@
 from functools import reduce
-from input_utils import get_operands 
+
+
+def get_operands():
+    operands_string_list = input("Enter operands(space separated) >> ").split()
+    operands = list(map(int, operands_string_list))
+    return operands
 
 numeric_select_message = """\nSelect operation...\n
 \t\t1 -> Summation
