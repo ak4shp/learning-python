@@ -27,11 +27,11 @@ class Triangle():
         self.__side3 = side3
 
     def area(self):
-        s = self.perimeter()/2
+        s = self.perimeter() / 2
         a = self.__side1
         b = self.__side2
         c = self.__side3
-        _area = math.sqrt(s * (s-a) * (s-b) * (s-c))
+        _area = math.sqrt(s * (s - a) * (s - b) * (s - c))
         return _area
     
     def perimeter(self):
