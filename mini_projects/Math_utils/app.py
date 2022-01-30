@@ -1,5 +1,5 @@
 from mensuration import Mensuration
-from numerical import numeric_calculation
+from numerical import NumericOperation
 
 welcome = """\nWelcome to 'MATH_UTILS'. Please select Operation Category...\n
 \t1 -> Basic Operations
@@ -20,7 +20,8 @@ def home_menu():
         if option == Options.GO_BACK:
             break
         elif option == Options.NUMERICAL:
-            numeric_calculation()
+            n = NumericOperation()
+            n.numeric_calculation()
         elif option == Options.MENSURATION:
             m = Mensuration()
             m.perform_operation()
