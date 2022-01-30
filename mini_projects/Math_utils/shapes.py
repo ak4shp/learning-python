@@ -73,7 +73,7 @@ class Cone():
     def calculate_slant_height(self):
         return math.sqrt(self.__radius ** 2 + self.__height ** 2)
 
-    def area(self):
+    def surface_area(self):
         curve_area = math.pi * self.__radius * self.__slant_height
         total_area = curve_area + math.pi * (self.__radius ** 2)
         return {
@@ -111,11 +111,11 @@ class Cylinder():
         return option
 
 class Sphere():
-    pass
+    def __init__(self, radius):
+        self.__radius = radius
 
+    def surface_area(self):
+        return 4 * math.pi * (self.__radius ** 2)
 
-# c = Circle()
-# c.area()
-
-# s = Sphere()
-# s.area()
+    def volume(self):
+        return math.pi * (self.__radius ** 3)
