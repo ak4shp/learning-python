@@ -95,11 +95,11 @@ class Cylinder():
 
 
 class Sphere():
-    pass
+    def __init__(self, radius):
+        self.__radius = radius
 
+    def surface_area(self):
+        return 4 * math.pi * (self.__radius ** 2)
 
-# c = Circle()
-# c.area()
-
-# s = Sphere()
-# s.area()
+    def volume(self):
+        return math.pi * (self.__radius ** 3)
