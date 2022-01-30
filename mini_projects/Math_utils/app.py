@@ -4,7 +4,7 @@ from numerical import numeric_calculation
 welcome = """\nWelcome to 'MATH_UTILS'. Please select Operation Category...\n
 \t1 -> Basic Operations
 \t2 -> Mensuration 
-\t0 -> Exit"""
+\t0 -> Exit App"""
 
 class Options:
     GO_BACK = 0
