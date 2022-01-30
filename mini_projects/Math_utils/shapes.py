@@ -65,8 +65,30 @@ class Rectangle():
 
 
 class Cone():
-    pass
+    def __init__(self, radius, height):
+        self.__radius = radius
+        self.__height = height
+        self.__slant_height = self.calculate_slant_height()
 
+    def calculate_slant_height(self):
+        return math.sqrt(self.__radius ** 2 + self.__height ** 2)
+
+    def area(self):
+        curve_area = math.pi * self.__radius * self.__slant_height
+        total_area = curve_area + math.pi * (self.__radius ** 2)
+        return {
+            'curve_area': curve_area,
+            'total_area': total_area
+        }
+
+    def volume(self):
+        _volume = (math.pi * (self.__radius ** 2) * self.__slant_height) / 3
+        return _volume
+
+    def properties_menu(self):
+        print("(S)lant Height\n(A)rea\n(V)olume\n(M)enu\n")
+        option = input("->> ")
+        return option
 
 class Cylinder():
     pass
