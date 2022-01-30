@@ -1,4 +1,4 @@
-from shapes import Circle, Triangle
+from shapes import Circle, Triangle, Rectangle, Cylinder
 
 
 def shape_properties(shape_property, shape):
@@ -77,8 +77,20 @@ class Mensuration:
                 else:
                     print("Invalid Triangle")
 
+            elif shape == Shapes.RECTANGLE:
+                print("Enter length, width(space separated):")
+                sides = map(int, input().split())
+                rectangle = Rectangle(*sides)
 
+                while show_properties_menu:
+                    shape_property = rectangle.properties_menu()
+                    show_properties_menu = shape_properties(shape_property, rectangle)
 
+            elif shape == Shapes.CYLINDER:
+                print("Enter radius, height(space separated):")
+                sides = map(int, input().split())
+                cylinder = Cylinder(*sides)
 
-
-
+                while show_properties_menu:
+                    shape_property = cylinder.properties_menu()
+                    show_properties_menu = shape_properties(shape_property, cylinder)
