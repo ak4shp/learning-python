@@ -3,7 +3,7 @@ from numerical import NumericOperation
 
 
 class MainMenu:
-    def _main_menu():
+    def main_menu():
         print("""\nWelcome to 'MATH_UTILS'. Please select Operation Category...\n
 \t1 -> Basic Operations
 \t2 -> Mensuration 
@@ -24,7 +24,7 @@ class MainFunction:
 
     def home_menu(self):
         while self.__show_main_menu:
-            option = MainMenu._main_menu()
+            option = MainMenu.main_menu()
 
             if option == Options.GO_BACK:
                 self.__show_main_menu = False
@@ -32,9 +32,13 @@ class MainFunction:
             elif option == Options.NUMERICAL:
                 n = NumericOperation()
                 n.numeric_calculation()
+
             elif option == Options.MENSURATION:
-                m = Mensuration()
-                m.perform_operation()
+                try:
+                    m = Mensuration()
+                    m.perform_operation()
+                except TypeError:
+                    print("WARNING ! Please give all required values only!!")
 
 
 if __name__ == "__main__":
